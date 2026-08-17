@@ -22,8 +22,5 @@
       "src": "/(.*)",
       "dest": "public/$1"
     }
-  ],
-  "env": {
-    "VERCEL_SUPPORT_LARGE_FUNCTIONS": "1"
-  }
+  ]
 }
