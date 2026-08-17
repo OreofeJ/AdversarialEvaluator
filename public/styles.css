@@ -1,0 +1,103 @@
+:root {
+  --bg-primary: #0f172a;
+  --panel-bg: #1e293b;
+  --accent: #6366f1;
+  --accent-alert: #ef4444;
+  --accent-warn: #f59e0b;
+  --text-main: #f8fafc;
+  --text-sub: #94a3b8;
+  --pert-level: 0%;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+  padding: 2rem;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--panel-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
+}
+
+.sub-text {
+  color: var(--text-sub);
+}
+
+.slider-group {
+  margin: 2rem 0;
+}
+
+input[type=range] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.metric-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-badge {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  transition: color 0.2s ease;
+}
+
+.metric-badge.drop {
+  color: var(--accent-alert);
+}
+
+.status-msg {
+  font-size: 0.875rem;
+  color: var(--text-sub);
+}
+
+.grid-view {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.img-box {
+  background: #090d16;
+  border-radius: 8px;
+  padding: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-box img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.noise-mask {
+  filter: contrast(200%) invert(100%);
+}
+
+/* CSS variable-driven noise overlay */
+.adversarial-overlay {
+  position: relative;
+}
+
+.adversarial-overlay::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+  opacity: var(--pert-level);
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>:: Adversarial Robustness Evaluator ::</title>
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Non-blocking External JavaScript execution -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <h2>Model Adversarial Robustness Evaluator</h2>
+    <p class="sub-text">Attack Strategy: Fast Gradient Sign Method (FGSM)</p>
+
+    <div class="slider-group">
+      <label for="epsilonSlider">
+        Perturbation Bound (&epsilon; = <span id="epsValue">0.00</span>)
+      </label>
+      <input type="range" id="epsilonSlider" min="0" max="0.3" step="0.01" value="0" />
+    </div>
+
+    <div class="metric-panel">
+      <h3>Robust Accuracy: <span id="accuracyDisplay" class="metric-badge">100.0%</span></h3>
+      <p id="statusMsg" class="status-msg">Ready for dynamic evaluation.</p>
+    </div>
+
+    <div class="grid-view">
+      <div class="img-box">
+        <h4>Clean Sample</h4>
+        <img src="https://picsum.photos/id/1025/200/200" alt="Clean Input" />
+        <p>Pred: <strong>Pug (98%)</strong></p>
+      </div>
+      <div class="img-box">
+        <h4>Generated Noise ($\nabla_x L$)</h4>
+        <img src="https://picsum.photos/id/1025/200/200" class="noise-mask" alt="Noise Mask" />
+        <p>Scaled Sign Matrix</p>
+      </div>
+      <div class="img-box adversarial-overlay">
+        <h4>Adversarial Target</h4>
+        <img src="https://picsum.photos/id/1025/200/200" alt="Adversarial Output" />
+        <p>Pred: <strong id="advPred">Pug (98%)</strong></p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
