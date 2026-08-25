@@ -1,1 +1,3 @@
 # AdversarialEvaluator
+
+AdversarialEvaluator is a toolkit and web-based interface for generating, applying, and measuring adversarial inputs against machine learning models. It combines a Python backend for evaluation and attack scripts with a JavaScript/HTML/CSS frontend to visualize results and interactively test models. The project provides modular components and example configurations so researchers and developers can reproduce experiments or integrate the evaluator into their workflows. Whether you're benchmarking model robustness or exploring adversarial attack techniques, AdversarialEvaluator aims to make evaluation simple, reproducible, and extensible.
